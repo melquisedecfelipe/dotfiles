@@ -1,0 +1,79 @@
+{
+  "editor.fontSize": 16,
+  "editor.lineHeight": 1.8,
+  "editor.parameterHints.enabled": false,
+  "editor.renderLineHighlight": "gutter",
+  "editor.suggestSelection": "first",
+  "editor.fontLigatures": true,
+  "editor.acceptSuggestionOnCommitCharacter": false,
+  "editor.accessibilitySupport": "off",
+  "editor.semanticHighlighting.enabled": false,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.tabSize": 2,
+  "editor.hideCursorInOverviewRuler": true,
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.vertical": "auto",
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleDeclarations": "goto",
+  "editor.gotoLocation.multipleImplementations": "goto",
+  "editor.gotoLocation.multipleReferences": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "explorer.compactFolders": false,
+  "explorer.confirmDragAndDrop": false,
+  "explorer.sortOrder": "foldersNestsFiles",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    ".eslintrc*": ".editorconfig*, .eslint*, .prettier*, prettier*, .stylelintrc*, .sasslint*",
+    "jest.config.ts": "jest.*",
+    "Dockerfile": "Dockerfile*, Makefile",
+    "package.json": ".babel*, babel*, nodemon*, package-lock*, tsconfig*, webpack*",
+    "tailwind.config.js": "tailwind.config*, .postcss*, postcss*"
+  },
+  "workbench.startupEditor": "newUntitledFile",
+  "workbench.editor.labelFormat": "short",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.editor.empty.hint": "hidden",
+  "workbench.colorTheme" : "Origamid Next",
+  "workbench.statusBar.visible": false,
+  "terminal.integrated.fontSize" : 14,
+  "terminal.integrated.showExitAlert": false,
+  "terminal.integrated.gpuAcceleration": "off",
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+  "terminal.integrated.defaultProfile.osx": "fish",
+  "security.promptForLocalFileProtocolHandling": false,
+  "security.workspace.trust.untrustedFiles": "newWindow",
+  "security.workspace.trust.banner" : "never",
+  "window.commandCenter": false,
+  "javascript.suggest.autoImports": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.tsserver.log": "off",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.suggest.autoImports": true,
+  "update.mode": "start",
+  "update.showReleaseNotes": false,
+  "git.openRepositoryInParentFolders": "always",
+  "git.enableSmartCommit": true,
+  "git.confirmSync" : false,
+  "git.ignoreRebaseWarning": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "emmet.syntaxProfiles": {
+    "javascript": "jsx"
+  },
+  "diffEditor.ignoreTrimWhitespace" : false,
+  "breadcrumbs.enabled": false,
+  "extensions.ignoreRecommendations": true,
+  "cSpell.language": "en,es",
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  },
+  "workbench.editor.editorActionsLocation": "hidden",
+  "workbench.layoutControl.enabled": false
+ }
