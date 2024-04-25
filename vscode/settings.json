@@ -21,6 +21,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wrappingIndent": "same",
+  "editor.wordWrapColumn": 120,
   "explorer.compactFolders": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.sortOrder": "foldersNestsFiles",
@@ -29,8 +32,10 @@
     ".eslintrc*": ".editorconfig*, .eslint*, .prettier*, prettier*, .stylelintrc*, .sasslint*",
     "jest.config.ts": "jest.*",
     "Dockerfile": "Dockerfile*, Makefile",
-    "package.json": ".babel*, babel*, nodemon*, package-lock*, tsconfig*, webpack*",
-    "tailwind.config.js": "tailwind.config*, .postcss*, postcss*"
+    "package.json": ".babel*, babel*, nodemon*, package-lock*, webpack*",
+    "newrelic.js": "newrelic*",
+    "tsconfig.json": "executors*, generators*, project*, tsconfig*",
+    "tailwind.config.js": "tailwind.config*, .postcss*, postcss*",
   },
   "workbench.startupEditor": "newUntitledFile",
   "workbench.editor.labelFormat": "short",

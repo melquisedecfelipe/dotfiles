@@ -10,6 +10,8 @@
   "base_keymap": "VSCode",
   "buffer_font_family": "JetBrains Mono",
   "buffer_font_size": 16,
+  "preferred_line_length": 120,
+  "soft_wrap": "preferred_line_length",
   "tab_size": 2,
   "terminal": {
     "font_family": "JetBrainsMono Nerd Font",
