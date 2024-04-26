@@ -46,11 +46,11 @@ git_configure() {
   git config --global help.autocorrect 1
   git config --global init.defaultBranch main
 
-  git config --global alias.l "log --pretty=oneline -n 10 --graph --abbrev-commit"
+  git config --global alias.l "log --pretty=oneline -n 10 --graph --abbrev-commit  --branches --not --remotes"
   git config --global alias.ca "!git add ':(exclude,attr:builtin_objectmode=160000)' && git commit -av"
-  git config --global alias.go "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+  git config --global alias.go '!f() { git checkout -b "$1" 2> /dev/null || git checkout "$1"; }; f'
   git config --global alias.aliases "config --get-regexp alias"
-  git config --global alias.reb "!r() { git rebase -i HEAD~$1; }; r"
+  git config --global alias.reb '!r() { git rebase -i HEAD~$1; }; r'
   git config --global alias.rol "reset --soft HEAD~1"
   git config --global alias.dm "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
   git config --global alias.contributors "shortlog --summary --numbered"
@@ -153,4 +153,7 @@ install_font "JetBrains" ~/Developer/Fonts/JetBrainsMono-Regular.ttf https://git
 
 next "$(style 'Very well'), installation completed!"
 
-warn "Remember to execute ./fish/.omf.sh"
+gum spin --spinner dot --title "Waiting, cleanup..." -- brew cleanup --quiet
+
+info "Cleanup completed!"
+warn "Remember to execute .omf.sh"
