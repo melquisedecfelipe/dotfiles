@@ -3,7 +3,11 @@
 
 choco feature enable -n allowGlobalConfirmation
 
-choco install 1password 7zip brave calibre discord epicgameslauncher googlechrome opera-gx powertoys spotify steam telegram  vlc
+choco install 1password 7zip brave calibre discord ea-app epicgameslauncher googlechrome opera-gx powertoys spotify telegram vlc
+choco install dotnet-5.0-desktopruntime dotnet-6.0-desktopruntim dotnetcore-3.1-desktopruntime vcredist140
+
+winget install Valve.Steam
+winget install WhatsApp.WhatsApp
 
 echo Very well, installation completed!
-echo Remember to install Battle.net and Whatsapp
+echo Remember to install Battle.net
