@@ -47,12 +47,12 @@ To clone and run this application, you'll need [Git](https://git-scm.com) instal
 $ git clone https://github.com/melquisedecfelipe/dotfiles
 
 # Go into the repository and give permission to the script
-$ cd dotfiles && chmod +x .bootstrap.sh && chmod +x .omf.sh
+$ cd dotfiles && chmod +x bootstrap.sh omf.sh .macos
 
 # Run
 $ ./bootstrap.sh
-
 $ ./.omf.sh
+$ ./.macos
 ```
 
 ## :memo: License
