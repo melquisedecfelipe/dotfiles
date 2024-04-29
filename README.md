@@ -52,7 +52,7 @@ $ cd dotfiles && chmod +x .bootstrap.sh && chmod +x .omf.sh
 # Run
 $ ./bootstrap.sh
 
-$ ./fish/.omf.sh
+$ ./.omf.sh
 ```
 
 ## :memo: License
