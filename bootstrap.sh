@@ -52,7 +52,7 @@ git_configure() {
   git config --global alias.aliases "config --get-regexp alias"
   git config --global alias.reb '!r() { git rebase -i HEAD~$1; }; r'
   git config --global alias.rol "reset --soft HEAD~1"
-  git config --global alias.dm "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+  git config --global alias.dm "!git branch --merged | grep -v '*' | xargs -n 1 git branch -d"
   git config --global alias.contributors "shortlog --summary --numbered"
   git config --global alias.whoami "config user.email"
 

@@ -17,11 +17,11 @@
 	reb = "!r() { git rebase -i HEAD~$1; }; r"
 
 	# Rollback last commit.
-	rol = "reset --soft HEAD~1"
+	rol = reset --soft HEAD~1
 
 	# Remove branches that have already been merged with main.
 	# a.k.a. ‘delete merged’
-	dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+	dm = !git branch --merged | grep -v '*' | xargs -n 1 git branch -d
 
 	# List contributors with number of commits.
 	contributors = shortlog --summary --numbered
