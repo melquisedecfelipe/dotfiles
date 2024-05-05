@@ -8,7 +8,7 @@ Dotfiles is composed of many configuration off Linux, macOS, Windows to improve 
 
 1. Clone repo `git clone https://github.com/melquisedecfelipe/dotfiles`
 2. Add permission to run commands `chmod +x bootstrap.sh omf.sh`
-3. Run files **`./bootstrap.sh`** **`./omf.sh`** **`source .macos`**.
+3. Run files `./bootstrap.sh` `./omf.sh` `source .macos`.
 
 If you are using Windows, just run `bootstrap-windows.bat` as administrator.
 
