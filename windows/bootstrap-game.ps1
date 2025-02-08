@@ -1,1 +1,0 @@
-winget install 7zip.7zip;winget install AgileBits.1Password;winget install Blizzard.BattleNet;winget install Brave.Brave;winget install Discord.Discord;winget install EpicGames.EpicGamesLauncher;winget install TheBrowserCompany.Arc;winget install Valve.Steam;winget install VideoLAN.VLC
