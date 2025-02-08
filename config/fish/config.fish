@@ -21,5 +21,11 @@ function load_nvm --on-variable PWD --description 'Do nvm stuff'
   end
 end
 
+if test -d /home/linuxbrew/.linuxbrew
+  eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+else if test -d /opt/homebrew
+  eval (/opt/homebrew/bin/brew shellenv)
+end
+
 load_aliases
 load_nvm

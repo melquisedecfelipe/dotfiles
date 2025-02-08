@@ -18,22 +18,9 @@ install_homebrew() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     if [[ $OS == "linux" ]]; then
-        test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
-        test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
-        sudo tee /etc/profile.d/homebrew.sh > /dev/null << EOF
-eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-EOF
-        sudo chmod +x /etc/profile.d/homebrew.sh
+        sudo apt-get install build-essential
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     elif [[ $OS == "macos" ]]; then
-        test -d /opt/homebrew && eval "$(/opt/homebrew/bin/brew shellenv)"
-        test -d /usr/local/bin && eval "$(/usr/local/bin/brew shellenv)"
-
-        sudo tee /etc/profile.d/homebrew.sh > /dev/null << EOF
-eval "\$(/opt/homebrew/bin/brew shellenv)"
-EOF
-        sudo chmod +x /etc/profile.d/homebrew.sh
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 }
