@@ -23,22 +23,43 @@ install_homebrew() {
     elif [[ $OS == "macos" ]]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
+
+    brew update
 }
 
-install_common() {
+install_linux() {
+    sudo apt update && sudo apt install -y unzip
+    sudo apt install -y kitty
+    sudo snap install code --classic
+    sudo snap install postman
+    sudo snap install 1password
+
+    curl -f https://zed.dev/install.sh | sh
+}
+
+install_macos() {
+    brew install --cask --quiet \
+        google-chrome \
+        postman \
+        visual-studio-code \
+        zed \
+        cursor \
+        kitty \
+        1password \
+        raycast \
+        arc
+}
+
+install_apps() {
+    brew install fish git
+
     if [[ $OS == "linux" ]]; then
-        sudo apt update && sudo apt install -y unzip
+        install_linux
     fi
 
-    brew install fish git \
-        && brew install --cask --quiet \
-            google-chrome \
-            postman \
-            visual-studio-code \
-            zed \
-            cursor \
-            kitty \
-            1password
+    if [[ $OS == "macos" ]]; then
+        install_macos
+    fi
 
     if ! grep -q "$(command -v fish)" /etc/shells; then
         echo "$(command -v fish)" | sudo tee -a /etc/shells
@@ -52,10 +73,6 @@ install_common() {
     fish -c "omf install nvm nai"
 
     curl -fsSL https://bun.sh/install | bash
-}
-
-install_macos_apps() {
-    brew install --cask --quiet raycast arc
 }
 
 install_font() {
@@ -82,15 +99,23 @@ setup_configs() {
     cp "${OS}/.aliases" "$HOME/.aliases"
 }
 
+cleanup() {
+    if [[ $OS == "linux" ]]; then
+        sudo apt update && sudo apt upgrade -y
+        sudo apt autoremove -y && sudo apt clean
+    fi
+
+    brew update && brew upgrade && brew cleanup
+}
+
 main() {
     [[ $OS == "unsupported" ]] && exit 1
 
     install_homebrew
-    brew update --quiet
-    install_common
-    [[ $OS == "macos" ]] && install_macos_apps
+    install_apps
     install_font
     setup_configs
+    cleanup
 }
 
 main
