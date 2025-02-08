@@ -16,7 +16,7 @@ OS=$(detect_os)
 
 install_homebrew() {
     if ! command -v brew &> /dev/null; then
-        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
 
         if [[ $OS == "linux" ]]; then
             eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

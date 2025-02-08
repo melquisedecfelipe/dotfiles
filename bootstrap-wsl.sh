@@ -2,13 +2,6 @@
 
 set -euo pipefail
 
-install_homebrew() {
-    if ! command -v brew &> /dev/null; then
-        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    fi
-}
-
 install_common() {
     sudo apt update && sudo apt install -y git curl fish
 
@@ -26,13 +19,6 @@ install_common() {
     curl -fsSL https://bun.sh/install | bash
 }
 
-install_font() {
-    local fonts_dir="$HOME/.local/share/fonts"
-    mkdir -p "$fonts_dir"
-    curl -fsSLo "$fonts_dir/JetBrains Mono Regular Nerd Font Complete.ttf" \
-        https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete.ttf
-}
-
 setup_configs() {
     mkdir -p "$HOME/.config/fish"
     mkdir -p "$HOME/Development"
@@ -43,10 +29,7 @@ setup_configs() {
 }
 
 main() {
-    install_homebrew
-    brew update --quiet
     install_common
-    install_font
     setup_configs
 }
 
