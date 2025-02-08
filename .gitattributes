@@ -1,7 +1,7 @@
 * text=auto eol=lf
 *.{cmd,[cC][mM][dD]} text eol=crlf
 *.{bat,[bB][aA][tT]} text eol=crlf
-*.{psm1,[pP][sS][mM]1} text eol=crlf
+*.{ps1,[pP][sS]1} text eol=crlf
 *.{sh} text eol=lf
 *.{yaml,yml} text eol=lf
 *.{json} text eol=lf
