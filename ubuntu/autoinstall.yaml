@@ -1,0 +1,23 @@
+#cloud-config
+autoinstall:
+    version: 1
+    identity:
+        realname: "Melquisedec"
+        hostname: ubuntu
+        username: melquisedec
+    locale: pt_BR.utf8
+    keyboard:
+        layout: br
+	variant: intl
+    timezone: "America/Sao_Paulo"   
+    packages:
+	- curl
+	- git
+    late-commands:
+	- curtin in-target -- /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    codecs:
+        install: true
+    drivers:
+        install: true
+    updates: all
+    shutdown: reboot
