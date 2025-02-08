@@ -78,7 +78,6 @@ setup_configs() {
 }
 
 main() {
-    check_dependencies
     [[ $OS == "unsupported" ]] && exit 1
 
     install_homebrew
