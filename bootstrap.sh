@@ -33,6 +33,10 @@ install_homebrew() {
 }
 
 install_common() {
+    if [[ $OS == "linux" ]]; then
+        sudo apt update && sudo apt install -y unzip
+    fi
+
     brew install fish git \
         && brew install --cask --quiet \
             google-chrome \
@@ -70,8 +74,10 @@ install_font() {
     fi
 
     mkdir -p "$fonts_dir"
-    curl -fsSLo "$fonts_dir/JetBrains Mono Regular Nerd Font Complete.ttf" \
-        https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete.ttf
+    curl -fsSLo "$fonts_dir/JetBrainsMono.zip" \
+        https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.zip
+    unzip -o "$fonts_dir/JetBrainsMono.zip" -d "$fonts_dir"
+    rm "$fonts_dir/JetBrainsMono.zip"
 }
 
 setup_configs() {
