@@ -20,14 +20,20 @@ install_homebrew() {
     if [[ $OS == "linux" ]]; then
         test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
         test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> "$HOME/.bashrc"
-        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> "$HOME/.profile"
+
+        sudo tee /etc/profile.d/homebrew.sh > /dev/null << EOF
+eval "\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+EOF
+        sudo chmod +x /etc/profile.d/homebrew.sh
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     elif [[ $OS == "macos" ]]; then
         test -d /opt/homebrew && eval "$(/opt/homebrew/bin/brew shellenv)"
         test -d /usr/local/bin && eval "$(/usr/local/bin/brew shellenv)"
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.bashrc"
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zshrc"
+
+        sudo tee /etc/profile.d/homebrew.sh > /dev/null << EOF
+eval "\$(/opt/homebrew/bin/brew shellenv)"
+EOF
+        sudo chmod +x /etc/profile.d/homebrew.sh
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 }
