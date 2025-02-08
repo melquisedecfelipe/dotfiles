@@ -26,10 +26,9 @@ Dotfiles is composed of many configuration files of Linux, macOS, Windows to imp
 
 #### Ubuntu autoinstall.yaml
 
-1. Copy `.env.example` to `.env`
-2. Set your password in `UBUNTU_PASSWORD`
-3. Run `./linux/generate-autoinstall.sh`
-4. Use the URL `http://localhost:8000/autoinstall.yaml` in your Ubuntu installation
+1. Run `cp .env.example .env` and set your password in `PASSWORD`
+2. Run `./linux/generate-autoinstall.sh`
+3. Use the URL `http://localhost:8000/autoinstall.yaml` in your installation
 
 ### Apps
 
