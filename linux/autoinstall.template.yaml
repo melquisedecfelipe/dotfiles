@@ -1,0 +1,27 @@
+#cloud-config
+autoinstall:
+    version: 1
+    source:
+        id: ubuntu-desktop-minimal
+    interactive-sections:
+        - storage
+    identity:
+        realname: ''
+        hostname: ubuntu
+        username: ''
+        password: ''
+    locale: "pt_BR.utf8"
+    keyboard:
+        layout: "us"
+        variant: "intl"
+    timezone: "America/Sao_Paulo"
+    packages:
+        - curl
+        - git
+        - whois
+    codecs:
+        install: true
+    drivers:
+        install: true
+    updates: all
+    shutdown: reboot

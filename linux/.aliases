@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# Easier navigation: ..
+alias ..="cd .."
+
+# Get linux Software Updates, Homebrew, npm, and their installed packages
+alias update="sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y; npm install npm -g; npm update -g"
