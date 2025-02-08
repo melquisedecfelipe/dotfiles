@@ -1,0 +1,50 @@
+# Copy from https://github.com/mathiasbynens/dotfiles/blob/main/.gitconfig
+
+[alias]
+	# View abbreviated SHA, description, and history graph of the latest 10 commits.
+	l = log --pretty=oneline -n 10 --graph --abbrev-commit
+
+	# Commit all changes.
+	ca = !git add ':(exclude,attr:builtin_objectmode=160000)' && git commit -av
+
+	# Switch to a branch, creating it if necessary.
+	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+	# List aliases.
+	aliases = config --get-regexp alias
+
+	# Interactive rebase with the given number of latest commits.
+	reb = "!r() { git rebase -i HEAD~$1; }; r"
+
+	# Rollback last commit.
+	rol = reset --soft HEAD~1
+
+	# Remove branches that have already been merged with main.
+	# a.k.a. ‘delete merged’
+	dm = !git branch --merged | grep -v '*' | xargs -n 1 git branch -d
+
+	# List contributors with number of commits.
+	contributors = shortlog --summary --numbered
+
+	# Show the user email for the current repository.
+	whoami = config user.email
+
+[apply]
+
+	# Detect whitespace errors when applying a patch.
+	whitespace = fix
+
+[color]
+
+	# Use colors in Git commands that are capable of colored output when
+	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
+	ui = auto
+
+[help]
+
+	# Automatically correct and execute mistyped commands.
+	autocorrect = 1
+
+[init]
+
+	defaultBranch = main
