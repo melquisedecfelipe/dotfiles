@@ -23,6 +23,3 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 alias spotoff="sudo mdutil -a -i off"
 # Enable Spotlight
 alias spoton="sudo mdutil -a -i on"
-
-# Clean install in node
-alias clean="rm -rf ./node_modules package-lock.json && npm cache clean --force && npm i"
