@@ -10,7 +10,7 @@ install_homebrew() {
 }
 
 install_common() {
-    sudo apt update && sudo apt install -y git curl kitty fish
+    sudo apt update && sudo apt install -y git curl fish
 
     if ! grep -q "$(command -v fish)" /etc/shells; then
         echo "$(command -v fish)" | sudo tee -a /etc/shells
