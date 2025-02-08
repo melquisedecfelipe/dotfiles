@@ -34,7 +34,7 @@ install_common() {
             visual-studio-code \
             zed \
             cursor \
-            hyper \
+            kitty \
             1password
 
     if ! grep -q "$(command -v fish)" /etc/shells; then

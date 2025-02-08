@@ -39,7 +39,7 @@ Here the apps that will be installed:
 - [nvm](https://github.com/derekstavis/plugin-nvm)
 - [Oh My Fish!](https://github.com/oh-my-fish/oh-my-fish)
 - [VS Code](https://code.visualstudio.com/)
-- [Hyper](https://hyper.is/)
+- [Kitty](https://sw.kovidgoyal.net/kitty/)
 - [Zed](https://zed.dev/)
 - [1Password](https://1password.com/)
 
