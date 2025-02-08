@@ -18,8 +18,6 @@ autoinstall:
     packages:
         - curl
         - git
-    late-commands:
-        - curtin in-target -- /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     codecs:
         install: true
     drivers:
