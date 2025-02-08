@@ -11,22 +11,34 @@ Dotfiles is composed of many configuration files of Linux, macOS, Windows to imp
 
 # Installation
 
-1. Clone repo
+Clone repo
 
 ```bash
 git clone https://github.com/melquisedecfelipe/dotfiles
 ```
 
-2. Add permission to run commands
+And add permission to run scripts:
 
 ```bash
-chmod +x bootstrap.sh bootstrap-wsl.sh linux/generate-autoinstall.sh
+chmod +x bootstrap-git.sh bootstrap-wsl.sh bootstrap.sh linux/generate-autoinstall.sh
 ```
 
-#### macOS e Linux
+#### macOS and Linux
 
 ```bash
 ./bootstrap.sh
+```
+
+If you want to configure Git and SSH, run the following commands:
+
+Create `.env` and set your `GIT_NAME` and `GIT_EMAIL`
+
+```bash
+cp .env.example .env
+```
+
+```bash
+./scripts/setup-git.sh
 ```
 
 #### Windows + WSL
@@ -35,11 +47,11 @@ chmod +x bootstrap.sh bootstrap-wsl.sh linux/generate-autoinstall.sh
 .\windows\install-dev.ps1
 ```
 
-After running the script, restart your computer
+After running the script, restart your computer and `bootstrap-wsl.sh`
 
 #### Ubuntu autoinstall.yaml
 
-Create `.env` and set your password in `PASSWORD`
+Create `.env` and set your `UBUNTU_PASSWORD`
 
 ```bash
 cp .env.example .env
