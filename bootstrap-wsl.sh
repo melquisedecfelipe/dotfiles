@@ -2,40 +2,16 @@
 
 set -euo pipefail
 
-detect_os() {
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        echo "macos"
-    elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        echo "linux"
-    else
-        echo "unsupported"
-    fi
-}
-
-OS=$(detect_os)
-
 install_homebrew() {
     if ! command -v brew &> /dev/null; then
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-        if [[ $OS == "linux" ]]; then
-            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-        elif [[ $OS == "macos" ]]; then
-            eval "$(/opt/homebrew/bin/brew shellenv)"
-        fi
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     fi
 }
 
 install_common() {
-    brew install fish git \
-        && brew install --cask --quiet \
-            google-chrome \
-            postman \
-            visual-studio-code \
-            zed \
-            cursor \
-            hyper \
-            1password
+    sudo apt update && sudo apt install -y git curl
+    brew install fish
 
     if ! grep -q "$(command -v fish)" /etc/shells; then
         echo "$(command -v fish)" | sudo tee -a /etc/shells
@@ -51,18 +27,8 @@ install_common() {
     curl -fsSL https://bun.sh/install | bash
 }
 
-install_macos_apps() {
-    brew install --cask --quiet raycast arc
-}
-
 install_font() {
-    local fonts_dir
-    if [[ $OS == "macos" ]]; then
-        fonts_dir="$HOME/Library/Fonts"
-    else
-        fonts_dir="$HOME/.local/share/fonts"
-    fi
-
+    local fonts_dir="$HOME/.local/share/fonts"
     mkdir -p "$fonts_dir"
     curl -fsSLo "$fonts_dir/JetBrains Mono Regular Nerd Font Complete.ttf" \
         https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/JetBrainsMono/Ligatures/Regular/complete/JetBrains%20Mono%20Regular%20Nerd%20Font%20Complete.ttf
@@ -74,17 +40,13 @@ setup_configs() {
 
     cp config/.gitconfig "$HOME/.gitconfig"
     cp config/fish/config.fish "$HOME/.config/fish/config.fish"
-    cp "${OS}/.aliases" "$HOME/.aliases"
+    cp linux/.aliases "$HOME/.aliases"
 }
 
 main() {
-    check_dependencies
-    [[ $OS == "unsupported" ]] && exit 1
-
     install_homebrew
     brew update --quiet
     install_common
-    [[ $OS == "macos" ]] && install_macos_apps
     install_font
     setup_configs
 }
