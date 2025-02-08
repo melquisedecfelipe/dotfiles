@@ -18,8 +18,16 @@ install_homebrew() {
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
     if [[ $OS == "linux" ]]; then
+        test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+        test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> "$HOME/.bashrc"
+        echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> "$HOME/.profile"
         eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     elif [[ $OS == "macos" ]]; then
+        test -d /opt/homebrew && eval "$(/opt/homebrew/bin/brew shellenv)"
+        test -d /usr/local/bin && eval "$(/usr/local/bin/brew shellenv)"
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.bashrc"
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zshrc"
         eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 }
