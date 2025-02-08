@@ -15,14 +15,12 @@ detect_os() {
 OS=$(detect_os)
 
 install_homebrew() {
-    if ! command -v brew &> /dev/null; then
-        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" < /dev/null
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-        if [[ $OS == "linux" ]]; then
-            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-        elif [[ $OS == "macos" ]]; then
-            eval "$(/opt/homebrew/bin/brew shellenv)"
-        fi
+    if [[ $OS == "linux" ]]; then
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    elif [[ $OS == "macos" ]]; then
+        eval "$(/opt/homebrew/bin/brew shellenv)"
     fi
 }
 
