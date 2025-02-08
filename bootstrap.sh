@@ -70,7 +70,7 @@ install_apps() {
     fish install_omf --noninteractive
     rm install_omf
 
-    fish -c "omf install nvm nai"
+    fish -c "omf install nvm nai pyenv"
 
     curl -fsSL https://bun.sh/install | bash
 }

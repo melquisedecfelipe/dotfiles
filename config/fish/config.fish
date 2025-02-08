@@ -1,5 +1,18 @@
-if status is-interactive
-  printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "fish"}}\x9c'
+set -g fish_greeting
+
+set -gx NVM_DIR $HOME/.nvm
+
+if test -d $NVM_DIR
+  fish_add_path $NVM_DIR/bin
+end
+
+fish_add_path $HOME/.local/bin
+fish_add_path $HOME/Development/bin
+
+if test -d /home/linuxbrew/.linuxbrew
+  eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+else if test -d /opt/homebrew
+  eval (/opt/homebrew/bin/brew shellenv)
 end
 
 function load_aliases
@@ -8,23 +21,17 @@ function load_aliases
   end
 end
 
-function load_nvm --on-variable PWD --description 'Do nvm stuff'
+function load_nvm --on-variable PWD --description 'Auto switch node version'
   if test -f .nvmrc
-    set node_version (nvm version)
-    set nvmrc_node_version (nvm version (cat .nvmrc))
+    set NODE (nvm version)
+    set NVMRC (nvm version (cat .nvmrc))
 
-    if [ $nvmrc_node_version = "N/A" ]
+    if [ $NVM = "N/A" ]
       nvm install
-    else if [ $nvmrc_node_version != $node_version ]
+    else if [ $NVMRC != $NODE ]
       nvm use
     end
   end
-end
-
-if test -d /home/linuxbrew/.linuxbrew
-  eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-else if test -d /opt/homebrew
-  eval (/opt/homebrew/bin/brew shellenv)
 end
 
 load_aliases
