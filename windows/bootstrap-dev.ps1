@@ -1,0 +1,1 @@
+winget install 7zip.7zip;winget install AgileBits.1Password;winget install Google.Chrome;winget install Microsoft.VisualStudioCode;winget install Postman.Postman;winget install TheBrowserCompany.Arc;winget install VideoLAN.VLC
