@@ -11,24 +11,49 @@ Dotfiles is composed of many configuration files of Linux, macOS, Windows to imp
 
 # Installation
 
-1. Clone repo `git clone https://github.com/melquisedecfelipe/dotfiles`
-2. Add permission to run commands: `chmod +x bootstrap.sh bootstrap-wsl.sh linux/generate-autoinstall.sh`
+1. Clone repo
+
+```bash
+git clone https://github.com/melquisedecfelipe/dotfiles
+```
+
+2. Add permission to run commands
+
+```bash
+chmod +x bootstrap.sh bootstrap-wsl.sh linux/generate-autoinstall.sh
+```
 
 #### macOS e Linux
 
-1. Run files `./bootstrap.sh`
+```bash
+./bootstrap.sh
+```
 
 #### Windows + WSL
 
-1. Run `.\windows\install-dev.psm1` as administrator
-2. Restart your computer
-3. Open `Ubuntu` and run `./bootstrap-wsl.sh`
+```powershell
+.\windows\install-dev.ps1
+```
+
+After running the script, restart your computer
 
 #### Ubuntu autoinstall.yaml
 
-1. Run `cp .env.example .env` and set your password in `PASSWORD`
-2. Run `./linux/generate-autoinstall.sh`
-3. Use the URL `http://localhost:8000/autoinstall.yaml` in your installation
+Create `.env` and set your password in `PASSWORD`
+
+```bash
+cp .env.example .env
+```
+
+```bash
+./linux/generate-autoinstall.sh
+```
+
+Use the URL in your installation
+
+```bash
+http://localhost:8000/autoinstall.yaml
+```
 
 ### Apps
 
