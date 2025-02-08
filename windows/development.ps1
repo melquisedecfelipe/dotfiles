@@ -1,8 +1,4 @@
-# Run as administrator
-if (-NOT ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
-    Start-Process powershell.exe "-NoProfile -ExecutionPolicy Bypass -File `"$PSCommandPath`"" -Verb RunAs
-    exit
-}
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
 $apps = @(
     "7zip.7zip",
@@ -27,8 +23,3 @@ dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux 
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 
 wsl --set-default-version 2
-
-$devPath = "$HOME\Development"
-New-Item -Path $devPath -ItemType Directory -Force
-
-wsl --exec bash -c "ln -sf /mnt/c/Users/$env:USERNAME/Development ~/Development"
