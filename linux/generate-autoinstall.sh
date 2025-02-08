@@ -10,9 +10,9 @@ source .env
 
 PASSWORD=$(echo "$PASSWORD" | mkpasswd -m sha-512 --stdin)
 
-sed -e "s/realname: ''/realname: '$REALNAME'/" \
-    -e "s/username: ''/username: '$USERNAME'/" \
-    -e "s/password: ''/password: '$PASSWORD'/" \
+sed -e "s|realname: ''|realname: '$REALNAME'|" \
+    -e "s|username: ''|username: '$USERNAME'|" \
+    -e "s|password: ''|password: '$PASSWORD'|" \
     "$DIR/autoinstall.template.yaml" > "$DIR/autoinstall.yaml"
 
 cd "$DIR" && python3 -m http.server 8000
