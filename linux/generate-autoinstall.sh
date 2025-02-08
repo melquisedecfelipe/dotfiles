@@ -8,10 +8,10 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 source .env
 
-PASSWORD=$(echo "$PASSWORD" | mkpasswd -m sha-512 --stdin)
+PASSWORD=$(echo "$UBUNTU_PASSWORD" | mkpasswd -m sha-512 --stdin)
 
-sed -e "s|realname: ''|realname: '$REALNAME'|" \
-    -e "s|username: ''|username: '$USERNAME'|" \
+sed -e "s|realname: ''|realname: '$UBUNTU_REALNAME'|" \
+    -e "s|username: ''|username: '$UBUNTU_USERNAME'|" \
     -e "s|password: ''|password: '$PASSWORD'|" \
     "$DIR/autoinstall.template.yaml" > "$DIR/autoinstall.yaml"
 
