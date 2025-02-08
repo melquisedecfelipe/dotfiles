@@ -43,11 +43,13 @@ cp .env.example .env
 
 #### Windows + WSL
 
-```powershell
-.\windows\install-dev.ps1
+For development environment:
+
+```batch
+.\windows\bootstrap.bat
 ```
 
-After running the script, restart your computer and `bootstrap-wsl.sh`
+After running the script, restart your computer and run: `./bootstrap-wsl.sh`
 
 #### Ubuntu autoinstall.yaml
 
