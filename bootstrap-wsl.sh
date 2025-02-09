@@ -14,7 +14,7 @@ install_common() {
     fish install_omf --noninteractive
     rm install_omf
 
-    fish -c "omf install nvm nai"
+    fish -c "omf install nvm nai pyenv"
 
     curl -fsSL https://bun.sh/install | bash
 }
@@ -28,9 +28,15 @@ setup_configs() {
     cp linux/.aliases "$HOME/.aliases"
 }
 
+cleanup() {
+    sudo apt update && sudo apt upgrade -y
+    sudo apt autoremove -y && sudo apt clean
+}
+
 main() {
     install_common
     setup_configs
+    cleanup
 }
 
 main

@@ -1,10 +1,22 @@
-Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+Set-ExecutionPolicy Bypass -Scope Process -Force
 
-winget install --id=7zip.7zip -e  && winget install --id=AgileBits.1Password -e  && winget install --id=Brave.Brave -e  && winget install --id=Discord.Discord -e  && winget install --id=EpicGames.EpicGamesLauncher -e  && winget install --id=TheBrowserCompany.Arc -e  && winget install --id=Valve.Steam -e  && winget install --id=VideoLAN.VLC -e  && winget install --id=Blizzard.BattleNet -e
+$apps = @(
+    "7zip.7zip",
+    "AgileBits.1Password",
+    "Brave.Brave",
+    "Discord.Discord",
+    "EpicGames.EpicGamesLauncher",
+    "TheBrowserCompany.Arc",
+    "Valve.Steam",
+    "VideoLAN.VLC"
+)
 
-# Game optimizations (uncomment if needed)
+foreach ($app in $apps) {
+    winget install --id=$app -e --silent
+}
 
-# # Disable unnecessary services
+# Uncomment the following line to disable unnecessary services
+# Disable unnecessary services
 # $services = @(
 #     "DiagTrack",               # Windows Telemetry
 #     "SysMain",                 # Superfetch
@@ -16,20 +28,20 @@ winget install --id=7zip.7zip -e  && winget install --id=AgileBits.1Password -e 
 #     Stop-Service -Name $service -Force
 # }
 
-# # Set power plan to high performance
-# powercfg /setactive 8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
+# Set power plan to high performance
+# powercfg /setactive SCHEME_MIN
 
-# # Disable visual effects for better performance
+# Disable visual effects
 # Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\VisualEffects" -Name "VisualFXSetting" -Value 2
 
-# # Disable Game DVR and Game Bar
+# Disable Game DVR and Game Bar
 # Set-ItemProperty -Path "HKCU:\System\GameConfigStore" -Name "GameDVR_Enabled" -Value 0
 # Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\GameDVR" -Name "AppCaptureEnabled" -Value 0
 
-# # Optimize CPU priority for games
+# Optimize CPU priority for games
 # Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" -Name "GPU Priority" -Value 8
 # Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" -Name "Priority" -Value 6
 # Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Multimedia\SystemProfile\Tasks\Games" -Name "Scheduling Category" -Value "High"
 
-# # Disable hibernation
+# Disable hibernation
 # powercfg /hibernate off
