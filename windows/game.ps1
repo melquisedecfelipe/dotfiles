@@ -1,19 +1,6 @@
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 
-$apps = @(
-    "7zip.7zip",
-    "AgileBits.1Password",
-    "Brave.Brave",
-    "Discord.Discord",
-    "EpicGames.EpicGamesLauncher",
-    "TheBrowserCompany.Arc",
-    "Valve.Steam",
-    "VideoLAN.VLC"
-)
-
-foreach ($app in $apps) {
-    winget install -e --accept-source-agreements --accept-package-agreements --silent $app
-}
+winget install --id=7zip.7zip -e  && winget install --id=AgileBits.1Password -e  && winget install --id=Brave.Brave -e  && winget install --id=Discord.Discord -e  && winget install --id=EpicGames.EpicGamesLauncher -e  && winget install --id=TheBrowserCompany.Arc -e  && winget install --id=Valve.Steam -e  && winget install --id=VideoLAN.VLC -e  && winget install --id=Blizzard.BattleNet -e
 
 # Game optimizations (uncomment if needed)
 
