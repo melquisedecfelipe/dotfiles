@@ -3,7 +3,6 @@ Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 $apps = @(
     "7zip.7zip",
     "AgileBits.1Password",
-    "Blizzard.BattleNet",
     "Brave.Brave",
     "Discord.Discord",
     "EpicGames.EpicGamesLauncher",

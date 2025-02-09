@@ -6,7 +6,6 @@ $apps = @(
     "Canonical.Ubuntu",
     "Cursor.Cursor",
     "Google.Chrome",
-    "Hyper.Hyper",
     "Microsoft.VisualStudioCode",
     "Microsoft.WindowsTerminal",
     "Postman.Postman",
