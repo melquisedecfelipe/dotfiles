@@ -8,7 +8,8 @@ $apps = @(
     "EpicGames.EpicGamesLauncher",
     "TheBrowserCompany.Arc",
     "Valve.Steam",
-    "VideoLAN.VLC"
+    "VideoLAN.VLC",
+    "Blizzard.BattleNet"
 )
 
 foreach ($app in $apps) {
