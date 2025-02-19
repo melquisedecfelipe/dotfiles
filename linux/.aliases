@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+# Easier navigation:
+alias cd="z"
+alias ..="cd .."
+
+# Get linux Software Updates, Homebrew, and their installed packages
+alias update="sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y"
