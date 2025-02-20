@@ -24,3 +24,6 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 alias spotoff="sudo mdutil -a -i off"
 # Enable Spotlight
 alias spoton="sudo mdutil -a -i on"
+
+alias gd="git checkout develop && git pull && git fetch --prune"
+alias gm="git checkout master && git pull && git fetch --prune"

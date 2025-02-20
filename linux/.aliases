@@ -6,3 +6,6 @@ alias ..="cd .."
 
 # Get linux Software Updates, Homebrew, and their installed packages
 alias update="sudo apt update; sudo apt upgrade -y; sudo apt autoremove -y"
+
+alias gd="git checkout develop && git pull && git fetch --prune"
+alias gm="git checkout master && git pull && git fetch --prune"
