@@ -12,13 +12,15 @@ install_apps() {
         sudo snap install 1password
         sudo snap install code --classic
         sudo snap install postman
+
+        curl -fsS https://dl.brave.com/install.sh | sh
         curl -f https://zed.dev/install.sh | sh
     fi
 
     if [[ $OS == "macos" ]]; then
         local apps=(
             "1password"
-            "arc"
+            "brave-browser"
             "google-chrome"
             "kitty"
             "postman"
