@@ -3,11 +3,12 @@ Set-ExecutionPolicy Bypass -Scope Process -Force
 $apps = @(
     "7zip.7zip",
     "AgileBits.1Password",
+    "Brave.Brave",
     "Google.Chrome",
     "Microsoft.VisualStudioCode",
     "Microsoft.WindowsTerminal",
+    "Mozilla.Firefox",
     "Postman.Postman",
-    "TheBrowserCompany.Arc",
     "VideoLAN.VLC"
 )
 
