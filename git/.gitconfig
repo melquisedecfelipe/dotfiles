@@ -1,0 +1,52 @@
+# Inspired by https://github.com/mathiasbynens/dotfiles/blob/main/.gitconfig
+#
+# Machine-specific overrides (name, email, signing key, work URLs) live in
+# ~/.gitconfig.local — see git/.gitconfig.local.example. That file is NOT committed.
+
+[include]
+	path = ~/.gitconfig.local
+
+[alias]
+	# View abbreviated SHA, description, and history graph of the latest 20 commits.
+	l = log --pretty=oneline -n 20 --graph --abbrev-commit
+
+	# Commit all changes (excluding submodules).
+	ca = !git add ':(exclude,attr:builtin_objectmode=160000)' && git commit -av
+
+	# Switch to a branch, creating it if necessary.
+	go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+	# Interactive rebase with the given number of latest commits.
+	reb = "!r() { git rebase -i HEAD~$1; }; r"
+
+	# Rollback last commit (keeps changes staged).
+	rol = reset --soft HEAD~1
+
+	# Remove branches that have already been merged with main.
+	dm = !git branch --merged | grep -v '*' | xargs -n 1 git branch -d
+
+	# List contributors with number of commits.
+	contributors = shortlog --summary --numbered
+
+	# Show the user email for the current repository.
+	whoami = config user.email
+
+	# Push current branch to origin.
+	pu = !git push origin `git branch --show-current`
+
+	# List all aliases.
+	aliases = config --get-regexp alias
+
+[apply]
+	# Detect whitespace errors when applying a patch.
+	whitespace = fix
+
+[color]
+	ui = auto
+
+[help]
+	# Automatically correct and execute mistyped commands.
+	autocorrect = 1
+
+[init]
+	defaultBranch = main

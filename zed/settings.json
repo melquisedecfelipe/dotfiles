@@ -1,0 +1,76 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "agent_buffer_font_size": 16.0,
+  "agent_ui_font_size": 16.0,
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "edit_predictions": {
+    "provider": "copilot",
+  },
+  "base_keymap": "VSCode",
+  "theme": "Vercel Dark",
+  "theme_overrides": {
+    "Vercel Dark": {
+      "terminal.background": "#0a0a0a",
+    },
+  },
+  "icon_theme": "Symbols Icon Theme",
+  "title_bar": {
+    "show_user_picture": false,
+    "show_sign_in": false,
+    "show_onboarding_banner": false,
+    "show_user_menu": false,
+  },
+  "toolbar": {
+    "breadcrumbs": false,
+    "quick_actions": false,
+  },
+  "project_panel": {
+    "dock": "right",
+    "default_width": 400,
+    "hide_root": true,
+    "auto_fold_dirs": false,
+    "indent_guides": {
+      "show": "never",
+    },
+  },
+  "gutter": {
+    "min_line_number_digits": 3,
+    "runnables": false,
+  },
+  "ui_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_size": 16,
+  "buffer_line_height": {
+    "custom": 2,
+  },
+  "current_line_highlight": "none",
+  "show_whitespaces": "none",
+  "tab_size": 2,
+  "auto_indent": "none",
+  "auto_indent_on_paste": false,
+  "show_completions_on_input": false,
+  "show_completion_documentation": false,
+  "inline_code_actions": false,
+  "extend_comment_on_newline": false,
+  "horizontal_scroll_margin": 1,
+  "vertical_scroll_margin": 1,
+  "close_on_file_delete": true,
+  "restore_on_file_reopen": false,
+  "restore_on_startup": "empty_tab",
+  "session": {
+    "restore_unsaved_buffers": false,
+  },
+  "terminal": {
+    "default_height": 600,
+  },
+}
