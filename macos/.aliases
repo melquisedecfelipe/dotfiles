@@ -1,29 +1,20 @@
 #!/usr/bin/env bash
 
-# Copy from https://github.com/mathiasbynens/dotfiles/blob/main/.aliases
+# Inspired by https://github.com/mathiasbynens/dotfiles/blob/main/.aliases
 
-# Easier navigation:
 alias cd="z"
 alias ..="cd .."
+alias cat="bat --theme auto:system --theme-dark default --theme-light GitHub"
 
-# Get macOS Software Updates, and update installed Ruby gems, Homebrew, and their installed packages
 alias update="sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup"
-
-# Recursively delete `.DS_Store` files
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 
-# Hide/show hidden files in Finder
 alias hide="defaults write com.apple.finder AppleShowAllFiles -bool false && killall Finder"
 alias show="defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder"
-
-# Hide/show desktop icons
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
-
-# Disable Spotlight
 alias spotoff="sudo mdutil -a -i off"
-# Enable Spotlight
 alias spoton="sudo mdutil -a -i on"
 
 alias gd="git checkout develop && git pull && git fetch --prune"
-alias gm="git checkout master && git pull && git fetch --prune"
+alias gm="git checkout main && git pull && git fetch --prune"

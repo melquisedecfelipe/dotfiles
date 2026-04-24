@@ -1,0 +1,46 @@
+# Brewfile — managed dotfiles
+# Run: brew bundle
+
+# ── Formulas
+
+# Shell
+brew "fish"
+brew "zoxide"           # smarter cd
+brew "atuin"            # shell history with search
+brew "bat"              # better cat
+
+# Git
+brew "git"
+brew "gh"               # GitHub CLI
+
+# Languages & runtimes
+brew "mise"             # universal version manager (node, python, bun, ...)
+
+# ── Casks (macOS only)
+
+# Browsers
+cask "brave-browser"
+
+# Editors / IDE
+cask "zed"
+
+# Terminal
+cask "ghostty"
+
+# Fonts
+cask "font-jetbrains-mono-nerd-font"
+
+# Dev tools
+cask "bruno"            # API client
+cask "tableplus"        # database GUI
+cask "figma"
+
+# Productivity
+cask "1password"
+cask "raycast"
+cask "notion-calendar"
+cask "hiddenbar"
+cask "shottr"           # screenshot tool
+
+# AI
+cask "claude-code"
