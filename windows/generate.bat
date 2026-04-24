@@ -1,21 +1,10 @@
 @echo off
-setlocal enabledelayedexpansion
 
-cd /d "%~dp0"
-cd ..
-
-if not exist ".env" exit /b 1
-
-for /f "tokens=1,* delims==" %%a in (.env) do (
-    if "%%a"=="WINDOWS_USERNAME" (
-        set "WINDOWS_USERNAME=%%b"
-        set "WINDOWS_USERNAME=!WINDOWS_USERNAME:"=!"
-        set "WINDOWS_USERNAME=!WINDOWS_USERNAME: =!"
-    )
+if "%1"=="" (
+  echo Usage: generate.bat ^<username^>
+  exit /b 1
 )
 
-if "%WINDOWS_USERNAME%"=="" exit /b 1
+powershell -Command "(Get-Content '%~dp0autounattend.template.xml') -replace '\${WINDOWS_USERNAME}', '%1' | Set-Content '%~dp0autounattend.xml'"
 
-powershell -Command "(Get-Content windows/autounattend.template.xml) -replace '\${WINDOWS_USERNAME}', '%WINDOWS_USERNAME%' | Set-Content windows/autounattend.xml"
-
-endlocal
+echo   [OK] autounattend.xml generated
