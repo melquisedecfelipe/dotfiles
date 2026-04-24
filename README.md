@@ -13,7 +13,7 @@ Personal dotfiles for macOS and Linux (development) and Windows (gaming).
 
 ```bash
 ./install.sh
-./git.sh "Your Name" email@example.com
+./git.sh "Your Name" <mail>
 ```
 
 > `git.sh` writes your name and email to `~/.gitconfig.local`, which is included by `git/.gitconfig` and never committed. See `git/.gitconfig.local.example` for other per-machine overrides.
