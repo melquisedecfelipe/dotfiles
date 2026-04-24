@@ -2,34 +2,35 @@
 
 set -euo pipefail
 
-cd "$(dirname "$0")"
-cd ..
+ok() { echo "  [OK] $*"; }
 
-command -v whois &> /dev/null || sudo apt install -y whois
-command -v python3 &> /dev/null || sudo apt install -y python3
-
-if [[ ! -f .env ]]; then
-    exit 1
+if [[ $# -ne 3 ]]; then
+  echo "Usage: generate.sh <username> <realname> <password>"
+  echo "Example: generate.sh melquisedec \"Melquisedec Felipe\" mypassword"
+  exit 1
 fi
 
-source .env
+USERNAME="$1"
+REALNAME="$2"
+PASSWORD="$3"
 
-if [[ -z "$UBUNTU_USERNAME" || -z "$UBUNTU_REALNAME" || -z "$UBUNTU_PASSWORD" ]]; then
-    exit 1
-fi
+command -v mkpasswd &> /dev/null || sudo apt install -y whois
 
-PASSWORD=$(echo "$UBUNTU_PASSWORD" | mkpasswd -m sha-512 --stdin)
+HASHED=$(echo "$PASSWORD" | mkpasswd -m sha-512 --stdin)
 
-sed -e "s|realname: ''|realname: '$UBUNTU_REALNAME'|" \
-    -e "s|username: ''|username: '$UBUNTU_USERNAME'|" \
-    -e "s|password: ''|password: '$PASSWORD'|" \
-    "linux/autoinstall.template.yaml" > "linux/autoinstall.yaml"
+DIR="$(cd "$(dirname "$0")" && pwd)"
 
-cd linux
+sed -e "s|realname: ''|realname: '$REALNAME'|" \
+    -e "s|username: ''|username: '$USERNAME'|" \
+    -e "s|password: ''|password: '$HASHED'|" \
+    "$DIR/autoinstall.template.yaml" > "$DIR/autoinstall.yaml"
 
-python3 -m http.server 8000 &
+ok "autoinstall.yaml generated"
+echo "  → serving on http://0.0.0.0:8000 for 60 seconds..."
+
+python3 -m http.server 8000 --directory "$DIR" &
 SERVER_PID=$!
 
-sleep 60
+trap "kill $SERVER_PID 2>/dev/null" EXIT
 
-kill $SERVER_PID
+sleep 60
